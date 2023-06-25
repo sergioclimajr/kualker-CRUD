@@ -1,0 +1,49 @@
+<h1>{{title}}</h1>
+
+
+<mat-card class="inputarea">
+  <div class="input-container">
+    <mat-form-field appearance="fill">
+        <mat-label>Nome</mat-label>
+        <input [(ngModel)]="usuario.nome" matInput placeholder="Digite seu nome">
+    </mat-form-field> <br>
+
+
+    <mat-form-field appearance="fill">
+        <mat-label>CPF</mat-label>
+        <input [(ngModel)]="usuario.cpf" matInput placeholder="Digite seu CPF"><br>
+    </mat-form-field> <br>
+
+
+    <mat-form-field appearance="fill">
+        <mat-label>Idade</mat-label>
+        <input [(ngModel)]="usuario.idade" matInput placeholder="Digite sua idade"><br>
+    </mat-form-field> <br>
+
+
+    <button mat-raised-button color="primary" (click)="inserirUsuario()"><mat-icon>add</mat-icon></button>
+    <br><br><br>
+  </div> 
+</mat-card>
+
+
+<mat-card class="cardUsuario" *ngFor="let usuario of usuarios">
+  <mat-card-header>
+    <mat-card-title>{{usuario.nome}}</mat-card-title>
+    <mat-card-subtitle>CPF: {{usuario.cpf}} <br>Idade: {{usuario.idade}} </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>{{longText}}</p>
+    <mat-divider></mat-divider>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="excluirUsuario(usuario)">
+      <mat-icon>delete</mat-icon>
+    </button>
+    <button class="button-edit" mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="editarUsuario(usuario)">
+      <mat-icon>edit</mat-icon>
+    </button>
+  </mat-card-actions>
+  <mat-card-footer>
+  </mat-card-footer>
+</mat-card>
